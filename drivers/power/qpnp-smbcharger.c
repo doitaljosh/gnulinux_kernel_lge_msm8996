@@ -10288,31 +10288,31 @@ static void lgcc_charger_reginfo(struct work_struct *work) {
 		pr_err("fail to read CMD_IL, %d\n", rc);
 #endif
 
-	pr_info ("[STATUS] USB_PRESENT[%d], PARALLEL_STATUS[%d], USB_TYPE[%s]\n",
+	pr_debug ("[STATUS] USB_PRESENT[%d], PARALLEL_STATUS[%d], USB_TYPE[%s]\n",
 			usb_present, parallel_status, usb_type_name);
 	if (usb_present) {
-		pr_info("[STATUS] TOTAL_IUSB[%d], PMI_IUSB[%d], SMB_IUSB[%d]\n",
+		pr_debug("[STATUS] TOTAL_IUSB[%d], PMI_IUSB[%d], SMB_IUSB[%d]\n",
 				total_iusb_set, pmi_iusb_aicl, smb_iusb);
-		pr_info("[STATUS] TOTAL_IBAT[%d/%d(vote)], PMI_IBAT[%d], SMB_IBAT[%d]\n",
+		pr_debug("[STATUS] TOTAL_IBAT[%d/%d(vote)], PMI_IBAT[%d], SMB_IBAT[%d]\n",
 				total_ibat, min_vote, pmi_ibat_set, smb_ibat_set);
-		pr_info ("[STATUS] CABLE_ID [%s], CABLE_INFO[%s], USBIN_VOL[%d]\n",
+		pr_debug ("[STATUS] CABLE_ID [%s], CABLE_INFO[%s], USBIN_VOL[%d]\n",
 				cable_type_name, usb_type_name, usbin_vol);
 	}
-	pr_info ("[STATUS] BATT_SOC[%d], BATT_VOL[%d], BATT_TEMP[%d], BATT_CUR[%d]\n",
+	pr_debug ("[STATUS] BATT_SOC[%d], BATT_VOL[%d], BATT_TEMP[%d], BATT_CUR[%d]\n",
 			batt_soc, batt_volt, batt_temp, batt_cur);
-	pr_info ("[STATUS] CHG_EN[%s], CHG_STATE[%s/%s/%s], SAFETY_STATE[%s/%s]\n",
+	pr_debug ("[STATUS] CHG_EN[%s], CHG_STATE[%s/%s/%s], SAFETY_STATE[%s/%s]\n",
 			chg_enable ? "Enable" : "Disable", chg_state, chg_type, chg_stage,
 			safety_state ? "Set" : "Not Set", safety_status ? "Operated" : "Not yet");
 #ifdef CONFIG_LGE_PM_LGE_POWER_CLASS_ADC_QCT
-	pr_info ("[STATUS] XO_tHERM[%d], PA_THERM[%d], BOARD_THERM[%d] VTS[%d]\n",
+	pr_debug ("[STATUS] XO_tHERM[%d], PA_THERM[%d], BOARD_THERM[%d] VTS[%d]\n",
 			xo_therm, pa0_therm, board_therm, vts_therm);
 #endif
 #ifdef CONFIG_LGE_PM_LGE_POWER_CLASS_SIMPLE
-	pr_info("[STATUS] IUSB_MAX[%d], USB_CTYPE[%s]\n",
+	pr_debug("[STATUS] IUSB_MAX[%d], USB_CTYPE[%s]\n",
 			chip->usb_max_current_ma, usb_ctype_name);
 #endif
 #ifdef CONFIG_MACH_MSM8996_LUCYE
-	pr_info("[STATS] ICL_STS_1[0x%02x] ICL_STS_2[0x%02x] CHGPTH_CMDIL[0x%02x]\n",
+	pr_debug("[STATS] ICL_STS_1[0x%02x] ICL_STS_2[0x%02x] CHGPTH_CMDIL[0x%02x]\n",
 			reg_icl_sts_1, reg_icl_sts_2, reg_chgpth_cmd_il);
 #endif
 	if (chip->usb_present)
